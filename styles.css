@@ -1,0 +1,301 @@
+/* Portfolio Modernization — glassmorphism theme.
+   Light frosted cards over a deep gradient. Body text is dark (#1a2433)
+   on light glass so contrast stays high; white text is used only on
+   the dark gradient / primary buttons. */
+
+:root {
+  --ink: #1a2433;
+  --ink-muted: #3d4a5c;
+  --accent: #0b5ed7;
+  --accent-dark: #0a4cb0;
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.65);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 35%, #2c5364 65%, #3a6ea5 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 2px;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--accent-dark);
+}
+
+:focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.5rem 1rem;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+/* Header / nav: dark glass over the gradient */
+.site-header .navbar {
+  background: rgba(10, 25, 40, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.site-header .navbar-brand,
+.site-header .nav-link {
+  color: #fff;
+}
+
+.site-header .nav-link:hover,
+.site-header .nav-link:focus-visible {
+  color: #cfe4ff;
+}
+
+.site-header .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.site-header .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Frosted glass cards */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  padding: 1.75rem;
+  color: var(--ink);
+}
+
+.glass-card h2,
+.glass-card h3 {
+  color: var(--ink);
+}
+
+.section {
+  padding: 2rem 0;
+}
+
+.section-title {
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
+
+.section-intro {
+  color: #e8f0f8;
+  max-width: 60rem;
+}
+
+/* Hero */
+.hero {
+  padding: 3.5rem 0 1.5rem;
+}
+
+.hero-card .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0a4cb0;
+  margin-bottom: 0.5rem;
+}
+
+.hero-card h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.hero-card .lead {
+  color: var(--ink-muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.hero-actions .btn-outline-light {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: transparent;
+}
+
+.hero-actions .btn-outline-light:hover,
+.hero-actions .btn-outline-light:focus-visible {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* About facts */
+.facts {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.facts dt {
+  font-weight: 700;
+}
+
+/* Experience timeline */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.timeline .glass-card {
+  border-left: 5px solid var(--accent);
+}
+
+.role-meta {
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+/* Projects */
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card h3 {
+  font-size: 1.25rem;
+}
+
+.project-meta {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+
+.project-skills {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Skills explorer */
+.skills-controls {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.skills-count {
+  color: var(--ink-muted);
+  margin-bottom: 0.75rem;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills-list .skill-chip {
+  border: 1px solid var(--accent);
+  background: #fff;
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.skills-list .skill-chip:hover,
+.skills-list .skill-chip:focus-visible {
+  background: var(--accent);
+  color: #fff;
+}
+
+.skills-list .skill-chip[aria-pressed="true"] {
+  background: var(--accent);
+  color: #fff;
+}
+
+.skill-detail {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(11, 94, 215, 0.35);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.skill-detail h3 {
+  margin-bottom: 0.25rem;
+}
+
+/* Contact / footer */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.site-footer {
+  padding: 2rem 0;
+  color: #dbe7f3;
+}
+
+.site-footer a {
+  color: #fff;
+}
+
+/* Responsive breakpoints: cards stack, hero shrinks, nav collapses
+   (Bootstrap handles the navbar below 992px). */
+@media (max-width: 767.98px) {
+  .hero {
+    padding: 2rem 0 1rem;
+  }
+
+  .hero-card h1 {
+    font-size: 1.9rem;
+  }
+
+  .glass-card {
+    padding: 1.25rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hero-card h1 {
+    font-size: 2.2rem;
+  }
+}
